@@ -19,11 +19,17 @@ function submit() {
 
 function submitRange() {
 	let a = BigInt(document.getElementById("numField").value);
+	clearDisplay();
 	for(let i = 1n; i <= a; i++) {
 		display(i + "!: " + noZeroCount(i));
 	}
 }
 	
+function clearDisplay() {
+	while(document.getElementById("display").firstChild !== null) {
+        	document.getElementById("display").removeChild(document.getElementById("display").firstChild);
+	}
+}
 function bigFact(n) {
 	if(n === 0n) {
     	return 1n;
