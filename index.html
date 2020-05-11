@@ -3,7 +3,8 @@
 	<input type="number" id="numField" name="bigNum">
     
     </input>
-    <button id="subBut" onClick="submit();">Submit</button>
+    <button id="subBut" onClick="submit();">n!</button>
+    <button id="subBut" onClick="submitRange();">1! - n!</button>
 
 	<div id="display">
     
@@ -16,6 +17,13 @@ function submit() {
 	display(a + "!: " + noZeroCount(a));
 }
 
+function submitRange() {
+	let a = BigInt(document.getElementById("numField").value);
+	for(let i = 1n; i <= a; i++) {
+		display(i + "!: " + noZeroCount(i));
+	}
+}
+	
 function bigFact(n) {
 	if(n === 0n) {
     	return 1n;
