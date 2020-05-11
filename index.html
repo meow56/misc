@@ -21,8 +21,17 @@ function submit() {
 function submitRange() {
 	let a = BigInt(document.getElementById("numField").value);
 	clearDisplay();
+	let dispDiv = document.getElementById("display");
+	let dataTable = document.createElement("TABLE");
 	for(let i = 1n; i <= a; i++) {
-		display(i + "!: " + noZeroCount(i));
+		let dataRow = document.createElement("TR");
+		let dataFact = document.createElement("TD");
+		let dataCount = document.createElement("TD");
+		dataFact.textContent = i;
+		dataCount.textContent = noZeroCount(i);
+		dataRow.appendChild(dataFact);
+		dataRow.appendChild(dataCount);
+		dataTable.appendChild(dataRow);
 	}
 }
 	
