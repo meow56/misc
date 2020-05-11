@@ -1,0 +1,45 @@
+<body>
+	<input type="number" id="numField">
+    
+    </input>
+    <button id="subBut" onClick="submit();">Submit</button>
+
+	<div id="display">
+    
+    </div>
+</body>
+
+<script>
+function submit() {
+	let a = BigInt(document.getElementById("numField").value);
+	display(a + "!: " + noZeroCount(a));
+    
+}
+
+function bigFact(n) {
+	if(n === 0n) {
+    	return 1n;
+    }
+    return n * bigFact(n - 1n);
+}
+
+
+function noZeroCount(num) {
+	var fact = bigFact(num);
+	fact = fact.toString();
+	var total = 0;
+	for(let i = 0; i < fact.length; i++) {
+		if(fact[i] !== "0") {
+    		total++;
+    	}
+	}
+    return total;
+}
+
+function display(text) {
+	const dispDiv = document.getElementById("display");
+	let textP = document.createElement("P");
+    textP.textContent = text;
+    dispDiv.appendChild(textP);
+}
+</script>
